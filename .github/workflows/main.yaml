@@ -1,0 +1,23 @@
+name: test-name
+on: [push, workflow_dispatch]
+jobs:
+  Testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        uses: actions/checkout@v4
+          - run: echo "something"
+
+      - name: Install
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
+      - name: Test
+        run: yarn test
+
+      - name: E2E
+        run: yarn test:e2e
+
